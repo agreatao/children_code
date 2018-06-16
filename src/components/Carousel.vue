@@ -1,48 +1,90 @@
+<!-- xuao -->
 <template>
-    <div class="carousel-wrap" id="carousel" @mouseover="stop" @mouseout="autoPlay">
+    <div class="carousel-wrap" id="carousel" @mouseover="stop" @mouseout="auto">
         <img class="carousel-item"
-           :class="{
-               'right-center': (currentIndex == index),
-               'center-left': (((currentIndex + 1) % 3) == index),
-               'left-right': (((currentIndex + 2) % 3) == index),
-               'left-center': (currentIndex == index),
-               'center-right': (((currentIndex + 2) % 3) == index),
-               'right-left': (((currentIndex + 1) % 3) == index)
-           }"
-           v-for="(item, index) in list" :key="index" @click="itemClick(index)" :src="item.image" />
+             :class="{
+                'right-center': ((current) % 3 === 1),
+                'left-right': ((current) % 3 === 0),
+                'center-left': ((current) % 3 === 2),
+                'left-center': ((current) % 3 === 1),
+                'right-left': ((current) % 3 === 0),
+                'center-right': ((current) % 3 === 2),
+             }"
+             :src="list[0].image"
+             @click="itemClick(current % 3)"
+        />
+        <img class="carousel-item"
+             :class="{
+                'right-center': ((current + 1) % 3 === 1),
+                'left-right': ((current + 1) % 3 === 0),
+                'center-left': ((current + 1) % 3 === 2),
+                'left-center': ((current + 1) % 3 === 1),
+                'right-left': ((current + 1) % 3 === 0),
+                'center-right': ((current + 1) % 3 === 2),
+             }"
+             :src="list[1].image"
+             @click="itemClick((current + 1) % 3)"
+        />
+        <img class="carousel-item"
+             :class="{
+                'right-center': ((current + 2) % 3 === 1),
+                'left-right': ((current + 2) % 3 === 0),
+                'center-left': ((current + 2) % 3 === 2),
+                'left-center': ((current + 2) % 3 === 1),
+                'right-left': ((current + 2) % 3 === 0),
+                'center-right': ((current + 2) % 3 === 2),
+             }"
+             :src="list[2].image"
+             @click="itemClick((current + 2) % 3)"
+        />
     </div>
 </template>
 <script>
     export default {
+        props: ['data'],
         name: 'Carousel',
         data() {
             return {
-                list: [
-                    {
-                        "clickUrl": "#",
-                        "image": "http://dummyimage.com/520x300/f1d65b"
-                    },
-                    {
-                        "clickUrl": "#",
-                        "image": "http://dummyimage.com/580x400/40b7ea"
-                    },
-                    {
-                        "clickUrl": "#",
-                        "image": "http://dummyimage.com/280x492/00ff00"
-                    }
-                ],
-                currentIndex: 0,
+                list: [],
+                current: 0,
+                waitList: [],
                 timer: null
             }
         },
         created() {
+            this.data.forEach((item, index) => {
+                if(index < 3) {
+                    this.list.push(item);
+                } else {
+                    this.waitList.push(item);
+                }
+            });
             this.$nextTick(() => {
-                this.autoPlay();
+                this.auto();
             });
         },
         methods: {
-            itemClick(index) {
-
+            itemClick(position) {
+                if(position === 0 || position === 2) { // right
+                    if(++this.current >= 3) {
+                        this.current = 0;
+                    }
+                    if(this.current % 3 === 0) {
+                        this.waitList.push(this.list[0]);
+                        this.list[0] = this.waitList.shift();
+                    }
+                    if((this.current + 1) % 3 === 0) {
+                        this.waitList.push(this.list[1]);
+                        this.list[1] = this.waitList.shift();
+                    }
+                    if((this.current + 2) % 3 === 0) {
+                        this.waitList.push(this.list[2]);
+                        this.list[2] = this.waitList.shift();
+                    }
+                }
+                if(position === 1) { // center
+                    console.log('open');
+                }
             },
             stop() {
                 if(this.timer) {
@@ -50,13 +92,26 @@
                     this.timer = null;
                 }
             },
-            autoPlay() {
-                if(!this.timer)
+            auto() {
+                if(!this.timer) {
                     this.timer = setInterval(() => {
-                        if(++this.currentIndex >= 3) {
-                            this.currentIndex = 0;
+                        if(++this.current >= 3) {
+                            this.current = 0;
+                        }
+                        if(this.current % 3 === 0) {
+                            this.waitList.push(this.list[0]);
+                            this.list[0] = this.waitList.shift();
+                        }
+                        if((this.current + 1) % 3 === 0) {
+                            this.waitList.push(this.list[1]);
+                            this.list[1] = this.waitList.shift();
+                        }
+                        if((this.current + 2) % 3 === 0) {
+                            this.waitList.push(this.list[2]);
+                            this.list[2] = this.waitList.shift();
                         }
                     }, 4000);
+                }
             }
         }
     }
@@ -78,6 +133,10 @@
         box-shadow: 0 4px 26px 0 rgba(0, 0, 0, .2);
         cursor: pointer;
         overflow: hidden;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
     }
 
     .left-center {
