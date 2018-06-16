@@ -5,10 +5,7 @@
              :class="{
                 'right-center': ((current) % 3 === 1),
                 'left-right': ((current) % 3 === 0),
-                'center-left': ((current) % 3 === 2),
-                'left-center': ((current) % 3 === 1),
-                'right-left': ((current) % 3 === 0),
-                'center-right': ((current) % 3 === 2),
+                'center-left': ((current) % 3 === 2)
              }"
              :src="list[0].image"
              @click="itemClick(current % 3)"
@@ -17,10 +14,7 @@
              :class="{
                 'right-center': ((current + 1) % 3 === 1),
                 'left-right': ((current + 1) % 3 === 0),
-                'center-left': ((current + 1) % 3 === 2),
-                'left-center': ((current + 1) % 3 === 1),
-                'right-left': ((current + 1) % 3 === 0),
-                'center-right': ((current + 1) % 3 === 2),
+                'center-left': ((current + 1) % 3 === 2)
              }"
              :src="list[1].image"
              @click="itemClick((current + 1) % 3)"
@@ -29,10 +23,7 @@
              :class="{
                 'right-center': ((current + 2) % 3 === 1),
                 'left-right': ((current + 2) % 3 === 0),
-                'center-left': ((current + 2) % 3 === 2),
-                'left-center': ((current + 2) % 3 === 1),
-                'right-left': ((current + 2) % 3 === 0),
-                'center-right': ((current + 2) % 3 === 2),
+                'center-left': ((current + 2) % 3 === 2)
              }"
              :src="list[2].image"
              @click="itemClick((current + 2) % 3)"

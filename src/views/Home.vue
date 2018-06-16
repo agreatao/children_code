@@ -1,19 +1,30 @@
 <template>
     <div class="home">
         <!-- 轮播 -->
-        <Carousel :data="data1" />
-        <!-- 副级广告区 -->
+        <Carousel3D :data="data1" />
+        <!-- 副级区 -->
         <div class="ad">
             <img v-for="(item, index) in adList" :src="item.image" :key="index" />
         </div>
         <!-- 课程内容 -->
+        <div class="lesson">
+            <h4>在线课程</h4>
+            <div class="container">
+                <a>Scratch</a>
+                <a>人工智能</a>
+                <a>机器人</a>
+            </div>
+        </div>
+        <div class="teacher">
+            <h4>师资团队</h4>
+        </div>
     </div>
 </template>
 <script>
-    import Carousel from '@/components/Carousel';
+    import Carousel3D from '@/components/Carousel3D';
     export default {
         name: 'Home',
-        components: { Carousel },
+        components: { Carousel3D },
         data() {
             return {
                 data1: [
@@ -21,16 +32,16 @@
                         "image": "http://dummyimage.com/520x300/f1d65b"
                     },
                     {
-                        "image": "http://dummyimage.com/580x400/40b7ea"
+                        "image": "http://dummyimage.com/520x300/40b7ea"
                     },
                     {
-                        "image": "http://dummyimage.com/280x492/00ff00"
+                        "image": "http://dummyimage.com/520x300/00ff00"
                     },
                     {
-                        "image": "http://dummyimage.com/280x492/ff0000"
+                        "image": "http://dummyimage.com/520x300/ff0000"
                     },
                     {
-                        "image": "http://dummyimage.com/280x492/0000ff"
+                        "image": "http://dummyimage.com/520x300/0000ff"
                     }
                 ],
                 adList: [
@@ -48,10 +59,14 @@
         }
     }
 </script>
-<style lang='less'>
+<style lang='less' scoped>
+    .home {
+        position: relative;
+    }
     .ad {
         margin-top: 46px;
         text-align: center;
+        margin-bottom: 20px;
         img {
             display: inline-block;
             margin-left: 20px;
@@ -60,6 +75,36 @@
         }
         img:first-child {
             margin-left: 0px;
+        }
+    }
+    .container {
+        width: 1000px;
+        margin: 0 auto;
+    }
+    h4 {
+        text-align: center;
+        margin-bottom: 35px;
+        font-size: 22px;
+        font-weight: 600;
+        color: #333;
+    }
+    .lesson {
+        display: block;
+        background: url('../assets/images/home_lesson_bg.png') no-repeat center -80px;
+        text-align: center;
+        padding: 40px 0;
+        margin-bottom: 20px;
+        a {
+            display: inline-block;
+            width: 280px;
+            height: 330px;
+            margin-left: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: #fff;
+        }
+        a:first-child {
+            margin-left: 0;
         }
     }
 </style>

@@ -5,11 +5,11 @@
                 青少年计算机编程网
             </div>
             <ul class="main-nav">
-                <li><router-link to="/">首页</router-link></li>
+                <li><router-link to="/" exact>首页</router-link></li>
                 <li><router-link to="/lesson">课程</router-link></li>
-                <li><router-link to="/">直播</router-link></li>
+                <li><router-link to="/tv">直播</router-link></li>
                 <li><router-link to="/circle">圈子</router-link></li>
-                <li><router-link to="/">咨询</router-link></li>
+                <li><router-link to="/news">咨询</router-link></li>
             </ul>
             <ul class="user-nav">
                 <li><router-link to="/signin">登录</router-link></li>
@@ -25,9 +25,12 @@
 </script>
 <style lang='less'>
     .nav-wrap {
+        margin-bottom: 12px;
+        box-shadow: 0px 1px 2px 0 rgba(0, 0, 0, .1);
+        border-bottom: 1px solid #f0f1f2;
         .nav {
             max-width: 1000px;
-            min-height: 60px;
+            height: 60px;
             margin: 0 auto;
             font-size: 16px;
             ul {
@@ -38,6 +41,9 @@
                         height: 60px;
                         line-height: 60px;
                         text-align: center;
+                        &.active {
+                            color: #f63a3b;
+                        }
                     }
                 }
             }
@@ -47,7 +53,7 @@
                 display: block;
                 clear: both;
                 visibility: hidden;
-                height: 1px;
+                height: 0px;
             }
         }
     }
