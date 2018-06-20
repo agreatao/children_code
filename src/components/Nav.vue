@@ -2,7 +2,7 @@
     <div class="nav-wrap">
         <div class="nav">
             <div class="logo">
-                青少年计算机编程网
+                <img src="http://dummyimage.com/50x50/f1d65b" width="50" height="50" style="margin-top: 5px;"/>
             </div>
             <ul class="main-nav">
                 <li><router-link to="/" exact>首页</router-link></li>
