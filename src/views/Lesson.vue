@@ -20,13 +20,16 @@
             <div v-if="courseIndex==2">机器人</div>
             <div v-if="courseIndex==3">人工智能</div>
         </div>
+        <LessonContainer></LessonContainer>
     </div>
+  
 </template>
 <script>
 import LessonCarousel from "@/components/LessonCarousel"
+import LessonContainer from "@/components/LessonContainer"
 export default {
   name: "Lesson",
-  components:{LessonCarousel},
+  components:{LessonContainer,LessonCarousel},
   data() {
     return {
       hotCourse: [
