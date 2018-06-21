@@ -1,9 +1,13 @@
 <template>
     <div id="lesson">
+        <!--轮播-->
+        <LessonCarousel />
+        <!--热门课程-->
         <div class="hotLesson">
         <p>热门课程</p>
         <img v-for="(item,index) in hotCourse" :key="index" :src="item.src" @click="item.url">
         </div>
+        <!--全部课程列表-->
         <div class="allCourse">
             <p>全部课程</p>
             <ul>
@@ -21,12 +25,11 @@
   
 </template>
 <script>
+import LessonCarousel from "@/components/LessonCarousel"
 import LessonContainer from "@/components/LessonContainer"
 export default {
   name: "Lesson",
-  components:{
-    LessonContainer
-    },
+  components:{LessonContainer,LessonCarousel},
   data() {
     return {
       hotCourse: [
@@ -63,22 +66,29 @@ export default {
 </script>
 <style lang="less">
 #lesson {
-  width: 1000px;
-  margin: 0 auto;
-  -p {
-    font-size: 20px;
-    text-align: center;
-    margin-bottom: 35px;
-  }
   .hotLesson {
+    width: 1000px;
+    margin: 0 auto;
     height: 300px;
     text-align: center;
+    p {
+      font-size: 20px;
+      text-align: center;
+      margin-bottom: 35px;
+  }
     img {
       display: inline-block;
       margin-left: 20px;
     }
   }
   .allCourse {
+    width: 1000px;
+    margin: 0 auto;
+    p {
+      font-size: 20px;
+      text-align: center;
+      margin-bottom: 35px;
+    }
     ul {
       text-align: center;
       .courseBtn {
