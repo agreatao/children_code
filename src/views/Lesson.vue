@@ -65,7 +65,7 @@ export default {
 #lesson {
   width: 1000px;
   margin: 0 auto;
-  p {
+  -p {
     font-size: 20px;
     text-align: center;
     margin-bottom: 35px;
