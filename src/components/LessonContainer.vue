@@ -1,21 +1,33 @@
 <template>
     <div>
-        <div class='lesson-card-container' v-for="(lesson,index) in lessonList" :key="index">
-            <a href="#" target="_blank" class="lesson-card">
-                <div class="lesson-card-top">
-                    <img :src="lesson.image"/>
-                </div>
-                <div class="lesson-card-content">
-                    <h3 class="lesson-card-name" v-text="lesson.name"></h3>
-                    <div class="lesson-card-bottom">
-                        <div class="lesson-card-info">
-                            <span class="lesson-card-icon"></span>
-                            <span class="lesson-amount" v-text="lesson.amount"></span>
-                        </div>
-                        <p class="lesson-card-desc" v-text="lesson.desc"></p>
+        <div class="allCourse">
+            <p>全部课程</p>
+            <ul>
+                <li v-for="(item,index) in data"
+                    :key="index" class="courseBtn" 
+                    :class="{checked:index==nowIndex}"
+                    @click="isSelect(index)">{{item.name}}</li>
+            </ul>
+        </div>
+        <div class='lesson-card-container' v-for="(item, index) in data" :key="index">
+            <div v-show="index == nowIndex">
+                <a href="#" target="_blank" class="lesson-card" v-for="(k, i) in item.list" :key="i">
+                    <div class="lesson-card-top">
+                        <img :src="k.image"/>
                     </div>
-                </div>
-            </a>
+                    <div class="lesson-card-content">
+                        <h3 class="lesson-card-name" v-text="k.name"></h3>
+                        <div class="lesson-card-bottom">
+                            <div class="lesson-card-info">
+                                <span class="lesson-card-icon"></span>
+                                <span class="lesson-amount" v-text="k.amount"></span>
+                            </div>
+                            <p class="lesson-card-desc" v-text="k.desc"></p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            
         </div> 
     </div>
 </template>
@@ -23,73 +35,28 @@
 
 <script>
 export default {
+    props: ['data'],
   name: "LessonContainer",
   data() {
     return {
-      lessonList: [
-        {
-            image:'http://dummyimage.com/256x216/f1d65b',
-            name:'mobx入门基础教程',
-            amount:123,
-            desc:'mobx框架基础入门,使用mobx做状态管理',
-            type:'1'
-        },
-        {
-            image:'http://dummyimage.com/256x216/f1d65b',
-            name:'用GO语言构建自己的区块链',
-            amount:234,
-            desc:'区块链自己动手实现一把，啥都明白了。',
-            type:'2'
-        },
-        {
-            image:'http://dummyimage.com/256x216/f1d65b',
-            name:'Crontab不知疲倦的时间表',
-            amount:657,
-            desc:'Crontab不知疲倦的时间表',
-            type:'3'
-        },
-        {
-            image:'http://dummyimage.com/256x216/f1d65b',
-            name:'mobx入门基础教程',
-            amount:123,
-            desc:'mobx框架基础入门,使用mobx做状态管理',
-            type:'3'
-        },
-        {
-            image:'http://dummyimage.com/256x216/f1d65b',
-            name:'用GO语言构建自己的区块链',
-            amount:234,
-            desc:'区块链自己动手实现一把，啥都明白了。',
-            type:'1'
-        },
-        {
-            image:'http://dummyimage.com/256x216/f1d65b',
-            name:'Crontab不知疲倦的时间表',
-            amount:657,
-            desc:'Crontab不知疲倦的时间表',
-            type:'1'
-        },
-        {
-            image:'http://dummyimage.com/256x216/f1d65b',
-            name:'用GO语言构建自己的区块链',
-            amount:234,
-            desc:'区块链自己动手实现一把，啥都明白了。',
-            type:'2'
-        },
-        {
-            image:'http://dummyimage.com/256x216/f1d65b',
-            name:'Crontab不知疲倦的时间表',
-            amount:657,
-            desc:'Crontab不知疲倦的时间表',
-            type:'1'
-        }
-      ],
+      nowIndex: 0,
     };
+  },
+  methods: {
+      isSelect(index) {
+      this.nowIndex = index;
+      this.courseIndex = index + 1;
+    }
   }
 };
 </script>
 
 <style lang="less">
+.checked {
+    color: #fff;
+    background-color: #5cb85c;
+    border-color: #4cae4c;
+}
 
 .lesson-card-container {
     height: 256px;
@@ -161,6 +128,27 @@ export default {
         -webkit-box-orient: vertical;
         height: 44px;
     }
+    .allCourse {
+        width: 1000px;
+        margin: 0 auto;
+        p {
+        font-size: 20px;
+        text-align: center;
+        margin-bottom: 35px;
+        }
+        ul {
+        text-align: center;
+            .courseBtn {
+                display: inline-block;
+                padding: 6px 12px;
+                font-size: 16px;
+                font-weight: 400;
+                border: 1px solid transparent; 
+                border-radius: 4px;
+            }
+        }
+    }
+
 }
 
 </style>
