@@ -16,6 +16,8 @@
     }
 </script>
 <style>
-
+    #app {
+        padding-top: 60px;
+    }
 </style>
 

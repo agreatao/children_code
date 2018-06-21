@@ -9,7 +9,7 @@
                 <li><router-link to="/lesson">课程</router-link></li>
                 <li><router-link to="/tv">直播</router-link></li>
                 <li><router-link to="/circle">圈子</router-link></li>
-                <li><router-link to="/news">咨询</router-link></li>
+                <li><router-link to="/news">资讯</router-link></li>
             </ul>
             <ul class="user-nav">
                 <li><router-link to="/signin">登录</router-link></li>
@@ -25,9 +25,13 @@
 </script>
 <style lang='less'>
     .nav-wrap {
-        margin-bottom: 12px;
         box-shadow: 0px 1px 2px 0 rgba(0, 0, 0, .1);
         border-bottom: 1px solid #f0f1f2;
+        position: fixed;
+        width: 100%;
+        background-color: #fff;
+        z-index: 9999;
+        top: 0;
         .nav {
             max-width: 1000px;
             height: 60px;
@@ -48,7 +52,7 @@
                 }
             }
 
-            &::before, &::after {
+            &:before, &:after {
                 content: "";
                 display: block;
                 clear: both;
@@ -71,4 +75,5 @@
     .user-nav {
         float: right;
     }
+
 </style>
