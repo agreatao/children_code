@@ -28,25 +28,62 @@ export default {
     return {
       lessonList: [
         {
-            image:'../assets/images/leeson_1.jpg',
+            image:'http://dummyimage.com/256x216/f1d65b',
             name:'mobx入门基础教程',
             amount:123,
-            desc:'mobx框架基础入门,使用mobx做状态管理'
+            desc:'mobx框架基础入门,使用mobx做状态管理',
+            type:'1'
         },
         {
-            image:'../assets/images/leeson_2.jpg',
+            image:'http://dummyimage.com/256x216/f1d65b',
             name:'用GO语言构建自己的区块链',
             amount:234,
-            desc:'区块链自己动手实现一把，啥都明白了。'
+            desc:'区块链自己动手实现一把，啥都明白了。',
+            type:'2'
         },
         {
-            image:'../assets/images/leeson_3.jpg',
+            image:'http://dummyimage.com/256x216/f1d65b',
             name:'Crontab不知疲倦的时间表',
             amount:657,
-            desc:'Crontab不知疲倦的时间表'
+            desc:'Crontab不知疲倦的时间表',
+            type:'3'
+        },
+        {
+            image:'http://dummyimage.com/256x216/f1d65b',
+            name:'mobx入门基础教程',
+            amount:123,
+            desc:'mobx框架基础入门,使用mobx做状态管理',
+            type:'3'
+        },
+        {
+            image:'http://dummyimage.com/256x216/f1d65b',
+            name:'用GO语言构建自己的区块链',
+            amount:234,
+            desc:'区块链自己动手实现一把，啥都明白了。',
+            type:'1'
+        },
+        {
+            image:'http://dummyimage.com/256x216/f1d65b',
+            name:'Crontab不知疲倦的时间表',
+            amount:657,
+            desc:'Crontab不知疲倦的时间表',
+            type:'1'
+        },
+        {
+            image:'http://dummyimage.com/256x216/f1d65b',
+            name:'用GO语言构建自己的区块链',
+            amount:234,
+            desc:'区块链自己动手实现一把，啥都明白了。',
+            type:'2'
+        },
+        {
+            image:'http://dummyimage.com/256x216/f1d65b',
+            name:'Crontab不知疲倦的时间表',
+            amount:657,
+            desc:'Crontab不知疲倦的时间表',
+            type:'1'
         }
       ],
-
     };
   }
 };
@@ -58,7 +95,7 @@ export default {
     height: 256px;
     width: 216px;
     float: left;
-    margin: 0px 0px 18px 18px;
+    margin: 0px 0px 27px 27px;
 }
 .lesson-card-top {
     width: 216px;
@@ -84,7 +121,7 @@ export default {
         overflow: hidden;
         text-overflow: ellipsis;
         display: -webkit-box;
-        -webkit-line-clamp: 2;
+        -webkit-line-clamp: 1;
         -webkit-box-orient: vertical;
         max-height: 46px;
         transition: all .3s;

@@ -15,12 +15,15 @@
                :class="{checked:index==nowIndex}" @click="isSelect(index)">{{item.title}}</li>
             </ul>
         </div>
-        <div class="course">
+        <!--<div class="course">
             <div v-if="courseIndex==1">Scratch</div>
             <div v-if="courseIndex==2">机器人</div>
             <div v-if="courseIndex==3">人工智能</div>
+        </div>-->
+        <div class="allCourse-box">
+          <LessonContainer></LessonContainer>
         </div>
-        <LessonContainer></LessonContainer>
+        
     </div>
   
 </template>
@@ -64,7 +67,7 @@ export default {
   mounted() {}
 };
 </script>
-<style lang="less">
+<style lang='less' scoped>
 #lesson {
   .hotLesson {
     width: 1000px;
@@ -117,5 +120,11 @@ export default {
   color: #fff;
   background-color: #5cb85c;
   border-color: #4cae4c;
+}
+.allCourse-box{
+  width:1000px;
+  margin:40px auto;
+  height: 700px;
+  background-color:#b5f4ce;
 }
 </style>
