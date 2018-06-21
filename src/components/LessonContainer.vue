@@ -1,8 +1,8 @@
 <template>
     <div class='lesson-card-container'>
-        <a href="" target="_blank" class="lesson-card">
+        <a href="#" target="_blank" class="lesson-card">
             <div class="lesson-card-top">
-                <img />
+                <img src="" />
             </div>
             <div class="lesson-card-content">
                 <h3 class="lesson-card-name">课程名称</h3>
@@ -11,7 +11,7 @@
                         <span class="lesson-card-icon"></span>
                         <span class="lesson-amount">课程数量</span>
                     </div>
-                    <p class="lesson-card-desc"></p>
+                    <p class="lesson-card-desc">课程介绍</p>
             </div>
         </a>
     </div>
@@ -30,12 +30,14 @@ export default {
 </script>
 
 <style>
+*{
+    font-size: "PingFang SC", Helvetica, "Helvetica Neue", 微软雅黑, Tahoma, Arial, sans-serif;
+}
 .lesson-card-container {
     height: 256px;
     width: 216px;
     float: left;
     margin: 0px 0px 18px 18px;
-    background-color: black;
 }
 .lesson-card-top {
     width: 216px;
@@ -74,7 +76,7 @@ export default {
     display: inline-block;
     margin-right: 12px;
 }
-.course-card-container .course-card-content .course-card-desc {
+.lesson-card-container .lesson-card-content .lesson-card-desc {
     font-size: 12px;
     font-weight: 300;
     color: #93999F;

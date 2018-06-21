@@ -16,11 +16,17 @@
             <div v-if="courseIndex==2">机器人</div>
             <div v-if="courseIndex==3">人工智能</div>
         </div>
+        <LessonContainer></LessonContainer>
     </div>
+  
 </template>
 <script>
+import LessonContainer from "@/components/LessonContainer"
 export default {
   name: "Lesson",
+  components:{
+    LessonContainer
+    },
   data() {
     return {
       hotCourse: [
