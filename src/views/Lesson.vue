@@ -131,6 +131,5 @@ export default {
   width:1000px;
   margin:40px auto;
   height: 700px;
-  background-color:#b5f4ce;
 }
 </style>

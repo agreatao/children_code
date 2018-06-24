@@ -11,20 +11,22 @@
             </ul>
         </div>
         <div class='lesson-card-container' v-for="(item, index) in data" :key="index" v-show="index == nowIndex">
-                <a href="#" target="_blank" class="lesson-card" v-for="(k, i) in item.list" :key="i">
-                    <div class="lesson-card-top">
-                        <img :src="k.image"/>
-                    </div>
-                    <div class="lesson-card-content">
-                        <h3 class="lesson-card-name" v-text="k.name"></h3>
-                        <div class="lesson-card-bottom">
-                            <div class="lesson-card-info">
-                                <span class="lesson-card-icon"></span>
-                                <span class="lesson-amount" v-text="k.amount"></span>
-                            </div>
-                            <p class="lesson-card-desc" v-text="k.desc"></p>
-                        </div>
-                    </div>
+                <a href="#" target="_blank" >
+                    <span class="lesson-card" v-for="(k, i) in item.list" :key="i">
+                        <span class="lesson-card-top">
+                            <img :src="k.image"/>
+                        </span>
+                        <span class="lesson-card-content">
+                            <h3 class="lesson-card-name" v-text="k.name"></h3>
+                            <span class="lesson-card-bottom">
+                                <span class="lesson-card-info">
+                                    <span class="lesson-card-icon"></span>
+                                    <span class="lesson-amount" v-text="k.amount"></span>
+                                </span>
+                                <p class="lesson-card-desc" v-text="k.desc"></p>
+                            </span>
+                        </span>
+                    </span>
                 </a>
         </div> 
     </div>
@@ -57,10 +59,14 @@ export default {
 }
 
 .lesson-card-container {
-    height: 256px;
-    width: 216px;
     float: left;
     margin: 0px 0px 27px 27px;
+    .lesson-card{
+        display: inline-block;
+        margin-right: 25px;
+        width: 216px;
+        height: 300px;
+    }
 }
 .lesson-card-top {
     width: 216px;
@@ -68,6 +74,7 @@ export default {
     border-radius: 8px;
     border: none;
     transition: all .3s;
+    display: block;
     img{
         width: 100%;
         height: 100%;
@@ -77,6 +84,7 @@ export default {
 }    
 
 .lesson-card-content{
+    display: block;
     padding: 8px;
     .lesson-card-name{
         font-size: 16px;
@@ -126,7 +134,9 @@ export default {
         -webkit-box-orient: vertical;
         height: 44px;
     }
-    .allCourse-option{
+
+}
+.allCourse-option{
         width: 1000px;
         margin: 0 auto;
         .allCourse-title{
@@ -136,6 +146,7 @@ export default {
         }
         .allCourse-group{
             text-align: center;
+            margin-bottom: 20px;
             .allCourse-list{
                 display: inline-block;
                 padding: 6px 12px;
@@ -146,8 +157,6 @@ export default {
             }
         }
     } 
-
-}
 
 </style>
 
