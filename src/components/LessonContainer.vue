@@ -1,16 +1,16 @@
 <template>
     <div>
-        <div class="allCourse">
-            <p>全部课程</p>
-            <ul>
-                <li v-for="(item,index) in data"
-                    :key="index" class="courseBtn" 
+        <div class="allCourse-option">
+            <p class="allCourse-title">全部课程</p>
+            <ul class="allCourse-group">
+                <li class="allCourse-list"
+                    v-for="(item,index) in data"
+                    :key="index"  
                     :class="{checked:index==nowIndex}"
                     @click="isSelect(index)">{{item.name}}</li>
             </ul>
         </div>
-        <div class='lesson-card-container' v-for="(item, index) in data" :key="index">
-            <div v-show="index == nowIndex">
+        <div class='lesson-card-container' v-for="(item, index) in data" :key="index" v-show="index == nowIndex">
                 <a href="#" target="_blank" class="lesson-card" v-for="(k, i) in item.list" :key="i">
                     <div class="lesson-card-top">
                         <img :src="k.image"/>
@@ -26,8 +26,6 @@
                         </div>
                     </div>
                 </a>
-            </div>
-            
         </div> 
     </div>
 </template>
@@ -128,17 +126,17 @@ export default {
         -webkit-box-orient: vertical;
         height: 44px;
     }
-    .allCourse {
+    .allCourse-option{
         width: 1000px;
         margin: 0 auto;
-        p {
-        font-size: 20px;
-        text-align: center;
-        margin-bottom: 35px;
+        .allCourse-title{
+            font-size: 20px;
+            text-align: center;
+            margin-bottom: 35px;
         }
-        ul {
-        text-align: center;
-            .courseBtn {
+        .allCourse-group{
+            text-align: center;
+            .allCourse-list{
                 display: inline-block;
                 padding: 6px 12px;
                 font-size: 16px;
