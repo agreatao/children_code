@@ -24,44 +24,72 @@ export default {
   data() {
     return {
       data: [{
-        name: 'sdffd',
+        name: '机器人',
         list: [
         {
             image:'http://dummyimage.com/256x216/f1d65b',
             name:'mobx入门基础教程',
-            amount:123,
             desc:'mobx框架基础入门,使用mobx做状态管理',
+            teacher:'张三',
         },
         {
             image:'http://dummyimage.com/256x216/f1d65b',
             name:'用GO语言构建自己的区块链',
-            amount:234,
             desc:'区块链自己动手实现一把，啥都明白了。',
+            teacher:'张三',
         },
         
         {
             image:'http://dummyimage.com/256x216/f1d65b',
             name:'用GO语言构建自己的区块链',
-            amount:234,
             desc:'区块链自己动手实现一把，啥都明白了。',
+            teacher:'李四',
         },
         {
             image:'http://dummyimage.com/256x216/f1d65b',
             name:'Crontab不知疲倦的时间表',
-            amount:657,
             desc:'Crontab不知疲倦的时间表',
+            teacher:'李四',
         },
         {
             image:'http://dummyimage.com/256x216/f1d65b',
             name:'用GO语言构建自己的区块链',
-            amount:234,
             desc:'区块链自己动手实现一把，啥都明白了。',
+            teacher:'李四',
         },
         {
             image:'http://dummyimage.com/256x216/f1d65b',
             name:'Crontab不知疲倦的时间表',
-            amount:657,
             desc:'Crontab不知疲倦的时间表',
+            teacher:'李四',
+        }
+      ]
+      },{
+        name: 'Scratch',
+        list: [
+        {
+            image:'http://dummyimage.com/256x216/f1d65b',
+            name:'用GO语言构建自己的区块链',
+            desc:'区块链自己动手实现一把，啥都明白了。',
+            teacher:'李四',
+        },
+        {
+            image:'http://dummyimage.com/256x216/f1d65b',
+            name:'Crontab不知疲倦的时间表',
+            desc:'Crontab不知疲倦的时间表',
+            teacher:'李四',
+        },
+        {
+            image:'http://dummyimage.com/256x216/f1d65b',
+            name:'用GO语言构建自己的区块链',
+            desc:'区块链自己动手实现一把，啥都明白了。',
+            teacher:'李四',
+        },
+        {
+            image:'http://dummyimage.com/256x216/f1d65b',
+            name:'Crontab不知疲倦的时间表',
+            desc:'Crontab不知疲倦的时间表',
+            teacher:'李四',
         }
       ]
       }, {
@@ -69,16 +97,17 @@ export default {
         list: [{
             image:'http://dummyimage.com/256x216/f1d65b',
             name:'Crontab不知疲倦的时间表',
-            amount:657,
             desc:'Crontab不知疲倦的时间表',
+            teacher:'李四',
         },
         {
             image:'http://dummyimage.com/256x216/f1d65b',
             name:'mobx入门基础教程',
-            amount:123,
             desc:'mobx框架基础入门,使用mobx做状态管理',
+            teacher:'李四',
         }]
-      }],
+      },
+      ],
       hotCourse: [
         {
           src: "http://dummyimage.com/300x200/ffe599",

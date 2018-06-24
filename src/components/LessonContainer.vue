@@ -21,7 +21,7 @@
                             <span class="lesson-card-bottom">
                                 <span class="lesson-card-info">
                                     <span class="lesson-card-icon"></span>
-                                    <span class="lesson-amount" v-text="k.amount"></span>
+                                    <span class=".lesson-card-teacher" v-text="k.teacher"></span>
                                 </span>
                                 <p class="lesson-card-desc" v-text="k.desc"></p>
                             </span>
@@ -36,18 +36,21 @@
 <script>
 export default {
     props: ['data'],
-  name: "LessonContainer",
-  data() {
-    return {
-      nowIndex: 0,
-    };
-  },
-  methods: {
-      isSelect(index) {
-      this.nowIndex = index;
-      this.courseIndex = index + 1;
+    name: "LessonContainer",
+    data() {
+        return {
+        nowIndex: 0,
+        };
+    },
+    methods: {
+        isSelect(index) {
+        this.nowIndex = index;
+        this.courseIndex = index + 1;
+        },
+        lessonMouseover(){
+            
+        }
     }
-  }
 };
 </script>
 
@@ -110,12 +113,12 @@ export default {
     .lesson-card-icon{
         display: inline-block;
         margin-right: 12px;
-        background: url('../assets/images/lesson_lisener.png') no-repeat;
+        background: url('../assets/images/lesson_teacher.png') no-repeat;
         background-size: cover;
         height: 12px;
         width:12px;
     }
-    .lesson-card-amount{
+    .lesson-card-teacher{
         height: 12px;
         width:12px;
         display: inline-block;
