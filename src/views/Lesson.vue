@@ -103,6 +103,8 @@ export default {
   }
   .course {
       margin-top: 20px;
+      width: 1000px;
+      margin: 0 auto;
     div {
       border: 1px solid #ccc;
       border-radius: 4px;

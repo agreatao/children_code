@@ -1,5 +1,5 @@
 <template>
-<div id="lessonCarousel">
+<div id="lessonCarousel" @mouseenter="enter" @mouseleave="leave">
     <transition-group tag="ul" name="spendImg">
         <li v-for="(image,index) in carouselImg" :key="index" v-show="index==mark">
             <a><img :src="image.src"></a>
@@ -7,6 +7,10 @@
     </transition-group>
     <div class="bullet">
         <span v-for="(item,index) in carouselImg.length" :key="index" :class="{'active':index==mark}" @click="change(index)"></span>
+    </div>
+    <div class="switch">
+        <span class="prev" @click="prev">&lt;</span>
+        <span class="next" @click="next">&gt;</span>
     </div>
 </div>
 </template>
@@ -16,6 +20,7 @@ export default {
     data(){
         return{
             mark:0,
+            time:null,
             carouselImg:[
                 {src: "http://dummyimage.com/1400x500/ffe599"},
                 {src: "http://dummyimage.com/1400x500/dd7e6b"},
@@ -29,14 +34,36 @@ export default {
         },
         autoPlay(){
             this.mark++
-            if(this.mark==4){
+            if(this.mark==3){
                 this.mark=0
                 return
             }
         },
         play(){
-            setInterval(this.autoPlay,3000)
-        }
+            this.time=setInterval(this.autoPlay,4000)
+        },
+        enter(){
+            console.log('enter')
+            clearInterval(this.time);
+        },
+        leave(){
+            console.log('leave')
+            this.play();
+        },
+        prev(){
+            this.mark--;
+            if(this.mark === -1){
+                this.mark = 2;
+                return
+            }
+        },
+        next(){
+            this.mark++;
+            if(this.mark === 3){
+                this.mark = 0;
+                return
+            }
+        },
     },
     created(){
         this.play()
@@ -61,7 +88,7 @@ export default {
     .bullet{
         position: absolute;
         font-size: 0;
-        bottom: -170px;
+        bottom: 100px;
         left: 50%;
         margin-left: -42px;
         span{
@@ -76,24 +103,50 @@ export default {
             }
         }
     }
-}
-.active{
-        background-color: red;
+    .switch{
+        span{
+            position: absolute;
+            width: 50px;
+	        height: 50px;
+	        line-height: 50px;
+	        text-align: center;
+	        background-color: rgba(0,0,0,.1);
+	        font-size: 20px;
+	        color: #ffffff;
+	        top: 50%;
+	        margin-top: -25px;
+	        cursor: pointer;
+	        font-family: "宋体";
+        }
+        span:hover{
+            background-color: rgba(0,0,0,.5);
+        }
     }
-    .image-enter-active{
+    .prev{
+        left: 0;
+    }
+    .next{
+        right: 0;
+    }
+    .active{
+        background-color: red !important;
+    }
+    .spendImg-enter-active{
         transform: translateX(0);
         transition: all 1s ease;
     }
-    .image-leave-active{
+    .spendImg-leave-active{
         transform: translateX(-100%);
         transition: all 1s ease;
     }
-    .image-enter{
+    .spendImg-enter{
         transform: translateX(100%);
     }
-    .image-leave{
+    .spendImg-leave{
         transform: translateX(0);
     }
+}
+
 </style>
 
 
