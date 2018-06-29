@@ -7,12 +7,12 @@
                     v-for="(item,index) in data"
                     :key="index"  
                     :class="{checked:index==nowIndex}"
-                    @click="isSelect(index)">{{item.name}}</li>
+                    @click="isSelect(index)" style="cursor:pointer;">{{item.name}}</li>
             </ul>
         </div>
         <div class='lesson-card-container' v-for="(item, index) in data" :key="index" v-show="index == nowIndex">
-                <a href="#" target="_blank"   >
-                    <span class="lesson-card" v-for="(k, i) in item.list" :key="i" style="background-color:#000;">
+                <a href="#" target="_blank">
+                    <span class="lesson-card" v-for="(k, i) in item.list" :key="i" >
                         <span class="lesson-card-top">
                             <img :src="k.image"/>
                         </span>
@@ -44,17 +44,39 @@ export default {
     },
     methods: {
         isSelect(index) {
-        this.nowIndex = index;
-        this.courseIndex = index + 1;
+            this.nowIndex = index;
+            this.courseIndex = index + 1;
         },
-        lessonMouseover(){
-            
-        }
+        
     }
 };
 </script>
 
 <style lang="less">
+.allCourse-option{
+    width: 1000px;
+    margin: 0 auto;
+    .allCourse-title{
+        font-size: 20px;
+        text-align: center;
+        margin-bottom: 35px;
+    }
+    .allCourse-group{
+        text-align: center;
+        margin-bottom: 20px;
+        .allCourse-list{
+            display: inline-block;
+            padding: 6px 12px;
+            font-size: 16px;
+            font-weight: 400;
+            border: 1px solid transparent; 
+            border-radius: 4px;
+        }
+        .allCourse-list:hover{
+            color: #4cae4c;
+        }
+    }
+} 
 .checked {
     color: #fff;
     background-color: #5cb85c;
@@ -67,12 +89,16 @@ export default {
     padding:0 50px 0 50px;
     .lesson-card{
         display: inline-block;
-        margin:0 30px 40px 0;
+        margin:0 45px 50px 0;
         width: 246px;
         height: 270px;
         border-radius: 8px;
         padding:15px;
-    
+        transition:all .5s;
+    }
+    .lesson-card:hover{
+        background-color: #f0f0f0;
+        box-shadow:0 3px 2px #c0c0c0;
     }
 }
 .lesson-card-top {
@@ -143,27 +169,7 @@ export default {
     }
 
 }
-.allCourse-option{
-        width: 1000px;
-        margin: 0 auto;
-        .allCourse-title{
-            font-size: 20px;
-            text-align: center;
-            margin-bottom: 35px;
-        }
-        .allCourse-group{
-            text-align: center;
-            margin-bottom: 20px;
-            .allCourse-list{
-                display: inline-block;
-                padding: 6px 12px;
-                font-size: 16px;
-                font-weight: 400;
-                border: 1px solid transparent; 
-                border-radius: 4px;
-            }
-        }
-    } 
+
 
 </style>
 
