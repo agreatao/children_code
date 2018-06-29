@@ -8,19 +8,10 @@
         <img v-for="(item,index) in hotCourse" :key="index" :src="item.src" @click="item.url">
         </div>
         <!--全部课程列表-->
-        <div class="allCourse">
-            <p>全部课程</p>
-            <ul>
-               <li v-for="(item,index) in courseList" :key="index" class="courseBtn" 
-               :class="{checked:index==nowIndex}" @click="isSelect(index)">{{item.title}}</li>
-            </ul>
+        <div class="allCourse-box">
+          <LessonContainer :data="data" />
         </div>
-        <div class="course">
-            <div v-if="courseIndex==1">Scratch</div>
-            <div v-if="courseIndex==2">机器人</div>
-            <div v-if="courseIndex==3">人工智能</div>
-        </div>
-        <LessonContainer></LessonContainer>
+        
     </div>
   
 </template>
@@ -32,6 +23,62 @@ export default {
   components:{LessonContainer,LessonCarousel},
   data() {
     return {
+      data: [{
+        name: 'sdffd',
+        list: [
+        {
+            image:'http://dummyimage.com/256x216/f1d65b',
+            name:'mobx入门基础教程',
+            amount:123,
+            desc:'mobx框架基础入门,使用mobx做状态管理',
+        },
+        {
+            image:'http://dummyimage.com/256x216/f1d65b',
+            name:'用GO语言构建自己的区块链',
+            amount:234,
+            desc:'区块链自己动手实现一把，啥都明白了。',
+        },
+        
+        {
+            image:'http://dummyimage.com/256x216/f1d65b',
+            name:'用GO语言构建自己的区块链',
+            amount:234,
+            desc:'区块链自己动手实现一把，啥都明白了。',
+        },
+        {
+            image:'http://dummyimage.com/256x216/f1d65b',
+            name:'Crontab不知疲倦的时间表',
+            amount:657,
+            desc:'Crontab不知疲倦的时间表',
+        },
+        {
+            image:'http://dummyimage.com/256x216/f1d65b',
+            name:'用GO语言构建自己的区块链',
+            amount:234,
+            desc:'区块链自己动手实现一把，啥都明白了。',
+        },
+        {
+            image:'http://dummyimage.com/256x216/f1d65b',
+            name:'Crontab不知疲倦的时间表',
+            amount:657,
+            desc:'Crontab不知疲倦的时间表',
+        }
+      ]
+      }, {
+        name: '人工智能',
+        list: [{
+            image:'http://dummyimage.com/256x216/f1d65b',
+            name:'Crontab不知疲倦的时间表',
+            amount:657,
+            desc:'Crontab不知疲倦的时间表',
+        },
+        {
+            image:'http://dummyimage.com/256x216/f1d65b',
+            name:'mobx入门基础教程',
+            amount:123,
+            desc:'mobx框架基础入门,使用mobx做状态管理',
+        }]
+      }],
       hotCourse: [
         {
           src: "http://dummyimage.com/300x200/ffe599",
@@ -46,11 +93,6 @@ export default {
           url: "#"
         }
       ],
-      courseList: [
-        { title: "Scratch" },
-        { title: "机器人" },
-        { title: "人工智能" }
-      ],
       nowIndex: 0,
       courseIndex: -1
     };
@@ -64,7 +106,7 @@ export default {
   mounted() {}
 };
 </script>
-<style lang="less">
+<style lang='less' scoped>
 #lesson {
   .hotLesson {
     width: 1000px;
@@ -81,43 +123,13 @@ export default {
       margin-left: 20px;
     }
   }
-  .allCourse {
-    width: 1000px;
-    margin: 0 auto;
-    p {
-      font-size: 20px;
-      text-align: center;
-      margin-bottom: 35px;
-    }
-    ul {
-      text-align: center;
-      .courseBtn {
-        display: inline-block;
-        padding: 6px 12px;
-        font-size: 16px;
-        font-weight: 400;
-        border: 1px solid transparent;
-        border-radius: 4px;
-      }
-    }
-  }
-  .course {
-      margin-top: 20px;
-      width: 1000px;
-      margin: 0 auto;
-    div {
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      background-color: #fff;
-      width: 1000px;
-      height: 200px;
-      display: inline-block;
-    }
-  }
+  
+    
 }
-.checked {
-  color: #fff;
-  background-color: #5cb85c;
-  border-color: #4cae4c;
+
+.allCourse-box{
+  width:1000px;
+  margin:40px auto;
+  height: 700px;
 }
 </style>

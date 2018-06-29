@@ -1,12 +1,11 @@
 <template>
     <div class="home">
-        <!-- 轮播 -->
-        <Carousel3D :data="topAD" />
-        <!-- 副级区 -->
+        <div class="top-carousel">
+            <Carousel3D :data="topAD" />
+        </div>
         <div class="ad">
             <img v-for="(item, index) in subAD" :src="item.image" :key="index" />
         </div>
-        <!-- 课程内容 -->
         <div class="lesson">
             <h4>在线课程</h4>
             <div class="container">
@@ -100,6 +99,10 @@
     .home {
         position: relative;
     }
+    .top-carousel {
+        margin-top: 15px;
+    }
+
     .ad {
         margin-top: 46px;
         text-align: center;
