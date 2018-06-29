@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="allCourse-option">
-            <p class="allCourse-title">全部课程</p>
+            <h4 data-v-4b424b3b>全部课程</h4>
             <ul class="allCourse-group">
                 <li class="allCourse-list"
                     v-for="(item,index) in data"
@@ -11,8 +11,8 @@
             </ul>
         </div>
         <div class='lesson-card-container' v-for="(item, index) in data" :key="index" v-show="index == nowIndex">
-                <a href="#" target="_blank" >
-                    <span class="lesson-card" v-for="(k, i) in item.list" :key="i">
+                <a href="#" target="_blank"   >
+                    <span class="lesson-card" v-for="(k, i) in item.list" :key="i" style="background-color:#000;">
                         <span class="lesson-card-top">
                             <img :src="k.image"/>
                         </span>
@@ -64,11 +64,15 @@ export default {
 .lesson-card-container {
     float: left;
     margin: 0px 0px 27px 27px;
+    padding:0 50px 0 50px;
     .lesson-card{
         display: inline-block;
-        margin-right: 25px;
-        width: 216px;
-        height: 300px;
+        margin:0 30px 40px 0;
+        width: 246px;
+        height: 270px;
+        border-radius: 8px;
+        padding:15px;
+    
     }
 }
 .lesson-card-top {

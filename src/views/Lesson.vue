@@ -4,7 +4,7 @@
         <LessonCarousel />
         <!--热门课程-->
         <div class="hotLesson">
-        <p>热门课程</p>
+        <h4 data-v-4b424b3b>热门课程</h4>
         <img v-for="(item,index) in hotCourse" :key="index" :src="item.src" @click="item.url">
         </div>
         <!--全部课程列表-->
@@ -140,8 +140,9 @@ export default {
   .hotLesson {
     width: 1000px;
     margin: 0 auto;
-    height: 300px;
+    height: 400px;
     text-align: center;
+    padding: 65px 0;
     p {
       font-size: 20px;
       text-align: center;
@@ -159,6 +160,7 @@ export default {
 .allCourse-box{
   width:1000px;
   margin:40px auto;
-  height: 700px;
+  height: 1000px;
+  padding: 65px 0;
 }
 </style>
