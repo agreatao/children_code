@@ -4,7 +4,7 @@
         <LessonCarousel />
         <!--热门课程-->
         <div class="hotLesson">
-        <p>热门课程</p>
+        <h4 data-v-4b424b3b>热门课程</h4>
         <img v-for="(item,index) in hotCourse" :key="index" :src="item.src" @click="item.url">
         </div>
         <!--全部课程列表-->
@@ -24,44 +24,72 @@ export default {
   data() {
     return {
       data: [{
-        name: 'sdffd',
+        name: '机器人',
         list: [
         {
             image:'http://dummyimage.com/256x216/f1d65b',
             name:'mobx入门基础教程',
-            amount:123,
             desc:'mobx框架基础入门,使用mobx做状态管理',
+            teacher:'张三',
         },
         {
             image:'http://dummyimage.com/256x216/f1d65b',
             name:'用GO语言构建自己的区块链',
-            amount:234,
             desc:'区块链自己动手实现一把，啥都明白了。',
+            teacher:'张三',
         },
         
         {
             image:'http://dummyimage.com/256x216/f1d65b',
             name:'用GO语言构建自己的区块链',
-            amount:234,
             desc:'区块链自己动手实现一把，啥都明白了。',
+            teacher:'李四',
         },
         {
             image:'http://dummyimage.com/256x216/f1d65b',
             name:'Crontab不知疲倦的时间表',
-            amount:657,
             desc:'Crontab不知疲倦的时间表',
+            teacher:'李四',
         },
         {
             image:'http://dummyimage.com/256x216/f1d65b',
             name:'用GO语言构建自己的区块链',
-            amount:234,
             desc:'区块链自己动手实现一把，啥都明白了。',
+            teacher:'李四',
         },
         {
             image:'http://dummyimage.com/256x216/f1d65b',
             name:'Crontab不知疲倦的时间表',
-            amount:657,
             desc:'Crontab不知疲倦的时间表',
+            teacher:'李四',
+        }
+      ]
+      },{
+        name: 'Scratch',
+        list: [
+        {
+            image:'http://dummyimage.com/256x216/f1d65b',
+            name:'用GO语言构建自己的区块链',
+            desc:'区块链自己动手实现一把，啥都明白了。',
+            teacher:'李四',
+        },
+        {
+            image:'http://dummyimage.com/256x216/f1d65b',
+            name:'Crontab不知疲倦的时间表',
+            desc:'Crontab不知疲倦的时间表',
+            teacher:'李四',
+        },
+        {
+            image:'http://dummyimage.com/256x216/f1d65b',
+            name:'用GO语言构建自己的区块链',
+            desc:'区块链自己动手实现一把，啥都明白了。',
+            teacher:'李四',
+        },
+        {
+            image:'http://dummyimage.com/256x216/f1d65b',
+            name:'Crontab不知疲倦的时间表',
+            desc:'Crontab不知疲倦的时间表',
+            teacher:'李四',
         }
       ]
       }, {
@@ -69,16 +97,17 @@ export default {
         list: [{
             image:'http://dummyimage.com/256x216/f1d65b',
             name:'Crontab不知疲倦的时间表',
-            amount:657,
             desc:'Crontab不知疲倦的时间表',
+            teacher:'李四',
         },
         {
             image:'http://dummyimage.com/256x216/f1d65b',
             name:'mobx入门基础教程',
-            amount:123,
             desc:'mobx框架基础入门,使用mobx做状态管理',
+            teacher:'李四',
         }]
-      }],
+      },
+      ],
       hotCourse: [
         {
           src: "http://dummyimage.com/300x200/ffe599",
@@ -111,8 +140,9 @@ export default {
   .hotLesson {
     width: 1000px;
     margin: 0 auto;
-    height: 300px;
+    height: 400px;
     text-align: center;
+    padding: 65px 0;
     p {
       font-size: 20px;
       text-align: center;
@@ -130,6 +160,7 @@ export default {
 .allCourse-box{
   width:1000px;
   margin:40px auto;
-  height: 700px;
+  height: 1000px;
+  padding: 65px 0;
 }
 </style>

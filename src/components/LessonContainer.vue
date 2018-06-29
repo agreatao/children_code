@@ -1,18 +1,18 @@
 <template>
     <div>
         <div class="allCourse-option">
-            <p class="allCourse-title">全部课程</p>
+            <h4 data-v-4b424b3b>全部课程</h4>
             <ul class="allCourse-group">
                 <li class="allCourse-list"
                     v-for="(item,index) in data"
                     :key="index"  
                     :class="{checked:index==nowIndex}"
-                    @click="isSelect(index)">{{item.name}}</li>
+                    @click="isSelect(index)" style="cursor:pointer;">{{item.name}}</li>
             </ul>
         </div>
         <div class='lesson-card-container' v-for="(item, index) in data" :key="index" v-show="index == nowIndex">
-                <a href="#" target="_blank" >
-                    <span class="lesson-card" v-for="(k, i) in item.list" :key="i">
+                <a href="#" target="_blank">
+                    <span class="lesson-card" v-for="(k, i) in item.list" :key="i" >
                         <span class="lesson-card-top">
                             <img :src="k.image"/>
                         </span>
@@ -21,7 +21,7 @@
                             <span class="lesson-card-bottom">
                                 <span class="lesson-card-info">
                                     <span class="lesson-card-icon"></span>
-                                    <span class="lesson-amount" v-text="k.amount"></span>
+                                    <span class=".lesson-card-teacher" v-text="k.teacher"></span>
                                 </span>
                                 <p class="lesson-card-desc" v-text="k.desc"></p>
                             </span>
@@ -36,22 +36,47 @@
 <script>
 export default {
     props: ['data'],
-  name: "LessonContainer",
-  data() {
-    return {
-      nowIndex: 0,
-    };
-  },
-  methods: {
-      isSelect(index) {
-      this.nowIndex = index;
-      this.courseIndex = index + 1;
+    name: "LessonContainer",
+    data() {
+        return {
+        nowIndex: 0,
+        };
+    },
+    methods: {
+        isSelect(index) {
+            this.nowIndex = index;
+            this.courseIndex = index + 1;
+        },
+        
     }
-  }
 };
 </script>
 
 <style lang="less">
+.allCourse-option{
+    width: 1000px;
+    margin: 0 auto;
+    .allCourse-title{
+        font-size: 20px;
+        text-align: center;
+        margin-bottom: 35px;
+    }
+    .allCourse-group{
+        text-align: center;
+        margin-bottom: 20px;
+        .allCourse-list{
+            display: inline-block;
+            padding: 6px 12px;
+            font-size: 16px;
+            font-weight: 400;
+            border: 1px solid transparent; 
+            border-radius: 4px;
+        }
+        .allCourse-list:hover{
+            color: #4cae4c;
+        }
+    }
+} 
 .checked {
     color: #fff;
     background-color: #5cb85c;
@@ -61,11 +86,19 @@ export default {
 .lesson-card-container {
     float: left;
     margin: 0px 0px 27px 27px;
+    padding:0 50px 0 50px;
     .lesson-card{
         display: inline-block;
-        margin-right: 25px;
-        width: 216px;
-        height: 300px;
+        margin:0 45px 50px 0;
+        width: 246px;
+        height: 270px;
+        border-radius: 8px;
+        padding:15px;
+        transition:all .5s;
+    }
+    .lesson-card:hover{
+        background-color: #f0f0f0;
+        box-shadow:0 3px 2px #c0c0c0;
     }
 }
 .lesson-card-top {
@@ -110,12 +143,12 @@ export default {
     .lesson-card-icon{
         display: inline-block;
         margin-right: 12px;
-        background: url('../assets/images/lesson_lisener.png') no-repeat;
+        background: url('../assets/images/lesson_teacher.png') no-repeat;
         background-size: cover;
         height: 12px;
         width:12px;
     }
-    .lesson-card-amount{
+    .lesson-card-teacher{
         height: 12px;
         width:12px;
         display: inline-block;
@@ -136,27 +169,7 @@ export default {
     }
 
 }
-.allCourse-option{
-        width: 1000px;
-        margin: 0 auto;
-        .allCourse-title{
-            font-size: 20px;
-            text-align: center;
-            margin-bottom: 35px;
-        }
-        .allCourse-group{
-            text-align: center;
-            margin-bottom: 20px;
-            .allCourse-list{
-                display: inline-block;
-                padding: 6px 12px;
-                font-size: 16px;
-                font-weight: 400;
-                border: 1px solid transparent; 
-                border-radius: 4px;
-            }
-        }
-    } 
+
 
 </style>
 
