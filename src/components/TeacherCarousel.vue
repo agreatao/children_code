@@ -38,7 +38,7 @@
             </li>
         </transition-group>
         <div class="teacher-carousel-control">
-            <span v-for="(item, index) in list" :class="{'active': index === current}" @click="change(index)"></span>
+            <span v-for="(item, index) in list" :class="{'active': index === current}" :key="index" @click="change(index)"></span>
         </div>
         <a class="teacher-carousel-control-left" @click="changeLeft"></a>
         <a class="teacher-carousel-control-right" @click="changeRight"></a>

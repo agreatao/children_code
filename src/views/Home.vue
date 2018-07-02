@@ -39,15 +39,45 @@
         <div class="circle">
             <h4>学友圈</h4>
             <div class="circle-box">
-                <div class="circle-item">
-                    家长圈
-                </div>
-                <div class="circle-item">
-                    老师圈
-                </div>
-                <div class="circle-item">
-                    朋友圈
-                </div>
+                <a class="circle-item">
+                    <div class="cover">
+                        <img src="http://dummyimage.com/250x150/f1d65b" />
+                        <h2>学生圈</h2>
+                    </div>
+                    <pre class="desc">
+                        <p>进群须知：</p>
+                        <p>1.avcd</p>
+                        <p>1.avcd</p>
+                        <p>1.avcd</p>
+                        <p>1.avcd</p>
+                    </pre>
+                </a>
+                <a class="circle-item">
+                    <div class="cover">
+                        <h2>家长圈</h2>
+                        <img src="http://dummyimage.com/250x150/f1d65b" />
+                    </div>
+                    <pre class="desc">
+                        <p>进群须知：</p>
+                        <p>1.avcd</p>
+                        <p>1.avcd</p>
+                        <p>1.avcd</p>
+                        <p>1.avcd</p>
+                    </pre>
+                </a>
+                <a class="circle-item">
+                    <div class="cover">
+                        <img src="http://dummyimage.com/250x150/f1d65b" />
+                        <h2>教师圈</h2>
+                    </div>
+                    <pre class="desc">
+                        <p>进群须知：</p>
+                        <p>1.avcd</p>
+                        <p>1.avcd</p>
+                        <p>1.avcd</p>
+                        <p>1.avcd</p>
+                    </pre>
+                </a>
             </div>
         </div>
     </div>
@@ -98,116 +128,163 @@
 <style lang='less' scoped>
     .home {
         position: relative;
-    }
-    .top-carousel {
-        margin-top: 15px;
-    }
-
-    .ad {
-        margin-top: 46px;
-        text-align: center;
-        margin-bottom: 20px;
-        img {
-            display: inline-block;
-            margin-left: 20px;
-            border-radius: 5px;
-            box-shadow: 4px 4px 26px 0 rgba(0, 0, 0, .2);
+        h4 {
+            text-align: center;
+            padding-top: 35px;
+            margin-bottom: 91px;
+            font-size: 29px;
+            font-weight: bold;
+            color: #333;
         }
-        img:first-child {
-            margin-left: 0;
+        .top-carousel {
+            margin-top: 15px;
         }
-    }
-    h4 {
-        text-align: center;
-        padding-top: 35px;
-        margin-bottom: 91px;
-        font-size: 29px;
-        font-weight: bold;
-        color: #333;
-    }
-    .lesson {
-        display: block;
-        background: url('../assets/images/home_lesson_bg.png') no-repeat center -80px;
-        text-align: center;
-        padding: 65px 0;
-        margin-bottom: 20px;
-        a {
-            display: inline-block;
-            width: 286px;
-            height: 410px;
-            margin-left: 21px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            background-color: #fff;
+        .ad {
+            margin-top: 46px;
+            text-align: center;
+            margin-bottom: 20px;
+            img {
+                display: inline-block;
+                margin-left: 20px;
+                border-radius: 5px;
+                box-shadow: 4px 4px 26px 0 rgba(0, 0, 0, .2);
+            }
+            img:first-child {
+                margin-left: 0;
+            }
         }
-        a:first-child {
-            margin-left: 0;
-        }
-    }
-    .teacher {
-        padding: 65px 0;
-    }
-
-    .news {
-        background-color: #f1f2f3;
-
-        .news-item {
+        .lesson {
             display: block;
-            width: 850px;
-            margin: 0 auto 20px auto;
-            &:before, &:after {
-                display: block;
-                clear: both;
-                content: '';
-                visibility: hidden;
+            background: url('../assets/images/home_lesson_bg.png') no-repeat center -80px;
+            text-align: center;
+            padding: 65px 0;
+            margin-bottom: 20px;
+            a {
+                display: inline-block;
+                width: 286px;
+                height: 410px;
+                margin-left: 21px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                background-color: #fff;
             }
-            .news-image {
-                float: left;
-            }
-            .news-info {
-                margin-left: 300px;
-            }
-            .news-title {
-                font-size: 21px;
-                text-align: left;
-                vertical-align: top;
-                display: -webkit-box;
-                -webkit-box-orient: vertical;
-                -webkit-line-clamp: 1;
-                overflow: hidden;
-                color: #1c1f21;
-            }
-            .news-content {
-                color: #918d8d;
-                font-size: 15px;
-                margin-top: 20px;
-                display: -webkit-box;
-                -webkit-box-orient: vertical;
-                -webkit-line-clamp: 3;
-                overflow: hidden;
-            }
-            .news-time {
-                text-align: end;
-                font-size: 12px;
-                color: #918d89;
+            a:first-child {
+                margin-left: 0;
             }
         }
-        .more {
-            width: 850px;
-            margin: 0 auto;
-            padding-bottom: 20px;
-            button {
+        .teacher {
+            padding: 65px 0;
+        }
+        .news {
+            background-color: #f1f2f3;
+            .news-item {
                 display: block;
-                width: 100%;
+                width: 850px;
+                margin: 0 auto 20px auto;
+                &:before, &:after {
+                    display: block;
+                    clear: both;
+                    content: '';
+                    visibility: hidden;
+                }
+                .news-image {
+                    float: left;
+                }
+                .news-info {
+                    margin-left: 300px;
+                }
+                .news-title {
+                    font-size: 21px;
+                    text-align: left;
+                    vertical-align: top;
+                    display: -webkit-box;
+                    -webkit-box-orient: vertical;
+                    -webkit-line-clamp: 1;
+                    overflow: hidden;
+                    color: #1c1f21;
+                }
+                .news-content {
+                    color: #918d8d;
+                    font-size: 15px;
+                    margin-top: 20px;
+                    display: -webkit-box;
+                    -webkit-box-orient: vertical;
+                    -webkit-line-clamp: 3;
+                    overflow: hidden;
+                }
+                .news-time {
+                    text-align: end;
+                    font-size: 12px;
+                    color: #918d89;
+                }
+            }
+            .more {
+                width: 850px;
+                margin: 0 auto;
+                padding-bottom: 20px;
+                button {
+                    display: block;
+                    width: 100%;
+                    text-align: center;
+                    height: 45px;
+                    background-color: #f1f2f3;
+                    border: none;
+                    cursor: pointer;
+                    color: #aaa;
+                    outline: none;
+                    &:hover {
+                        color: #333;
+                    }
+                }
+            }
+        }
+        .circle {
+            padding-bottom: 40px;
+            .circle-box {
+                display: block;
                 text-align: center;
-                height: 45px;
-                background-color: #f1f2f3;
-                border: none;
-                cursor: pointer;
-                color: #aaa;
-                outline: none;
-                &:hover {
-                    color: #333;
+                .circle-item {
+                    display: inline-block;
+                    position: relative;
+                    width: 286px;
+                    border: 1px solid #aaa;
+                    border-radius: 4px;
+                    margin: 0 20px;
+                    vertical-align: top;
+                    .cover {
+                        transition: all .5s ease-in-out;
+                        opacity: 1;
+                        visibility: visible;
+                        img {
+                            display: block;
+                            width: 100%;
+                            height: 100%;
+                        }
+                        h2 {
+                            display: block;
+                            height: 170px;
+                            line-height: 170px;
+                        }
+                    }
+                    .desc {
+                        transition: all .5s ease-in-out;
+                        opacity: 0;
+                        visibility: hidden;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                    }
+                    &:hover {
+                        .cover {
+                            opacity: 0;
+                            visibility: hidden;
+                        }
+                        .desc {
+                            opacity: 1;
+                            visibility: visible;
+                        }
+                    }
                 }
             }
         }

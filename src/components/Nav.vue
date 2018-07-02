@@ -46,7 +46,7 @@
                         line-height: 60px;
                         text-align: center;
                         &.active {
-                            color: #f63a3b;
+                            color: #ffc400;
                         }
                     }
                 }
